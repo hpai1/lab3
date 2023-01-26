@@ -38,15 +38,23 @@ class LinkedList {
             return;
         }
         // Otherwise, loop until the end and add at the end with a null
+
+        /* 
+         * This was buggy. n.next = newNode should be outside loop, not inside.
+         */
         while(n.next != null) {
             n = n.next;
-            n.next = new Node(value, null);
+            //n.next = new Node(value, null);
         }
+        n.next = new Node(value, null);
+
+        
     }
     /**
      * @return the value of the first element in the list
      */
     public int first() {
+        if(this.length()==0) { throw new NoSuchElementException(); }
         return this.root.value;
     }
     /**
@@ -88,4 +96,6 @@ class LinkedList {
         }
         return i;
     }
+
+    
 }
