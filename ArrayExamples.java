@@ -38,6 +38,7 @@ public class ArrayExamples {
     for(double num: arr) {
       if(num != lowest) { sum += num; }
     }
+    System.out.println(sum / (arr.length - 1));
     return sum / (arr.length - 1);
   }
 
